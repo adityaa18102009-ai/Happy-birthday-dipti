@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Dipti! ❤️</title>
+    <style>
+        :root {
+            --primary-pink: #ff85a2;
+            --secondary-rose: #ff477e;
+            --soft-cream: #fff0f5;
+            --card-shadow: 0 15px 35px rgba(255, 133, 162, 0.2);
+            --text-dark: #4a3b40;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Falling Hearts Background Animation */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation Grid */
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        nav button {
+            background: transparent;
+            border: 2px solid var(--primary-pink);
+            padding: 6px 14px;
+            color: var(--secondary-rose);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        nav button:hover, nav button.active {
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-rose));
+            color: white;
+            border-color: transparent;
+            transform: scale(1.08);
+            box-shadow: 0 4px 10px rgba(255, 71, 126, 0.3);
+        }
+
+        /* Main Container Layout */
+        .container {
+            flex: 1;
+            max-width: 750px;
+            width: 90%;
+            margin: 30px auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page {
+            display: none;
+            background: rgba(255, 255, 255, 0.93);
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Media / Picture Frame Elements */
+        h1 { 
+            color: var(--secondary-rose); 
+            margin-bottom: 20px; 
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        p { 
+            font-size: 1.1rem; 
+            line-height: 1.6; 
+            margin-bottom: 25px; 
+            color: var(--text-dark); 
+        }
+        
+        .image-frame {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 15px 0 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 6px solid white;
+            transition: transform 0.3s ease;
+        }
+
+        .image-frame:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .grid-gallery .image-frame {
+            margin: 0;
+            max-height: 300px;
+        }
+
+        /* Buttons and Interactive Elements */
+        .btn-next {
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-rose));
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.05rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-next:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 71, 126, 0.6);
+        }
+
+        /* Core Heartfelt Letter Page Elements */
+        .love-letter {
+            text-align: left;
+            background: linear-gradient(to right, #fff9fa, #fff0f3);
+            padding: 30px;
+            border-left: 6px solid var(--secondary-rose);
+            border-radius: 14px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+            margin: 20px auto;
+        }
+
+        .letter-signature {
+            margin-top: 25px;
+            font-weight: bold;
+            color: var(--secondary-rose);
+            text-align: right;
+            font-size: 1.2rem;
+        }
+
+        /* Interactive Widgets */
+        .compliment-box {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-rose);
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px dashed var(--primary-pink);
+            margin: 25px 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quiz-option {
+            background: white;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 2px solid #ffe5ec;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover { 
+            background: #ffe5ec;
+            border-color: var(--primary-pink);
+            transform: translateX(5px);
+        }
+
+        ul.styled-list {
+            text-align: left;
+            max-width: 450px;
+            margin: 0 auto 25px auto;
+            list-style: none;
+        }
+
+        ul.styled-list li {
+            padding: 8px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-bg" id="heartsContainer"></div>
+
+    <nav id="navbar"></nav>
+
+    <div class="container">
+        
+        <div id="page1" class="page active">
+            <h1>🎉 Happy Birthday, Dipti! 🎉</h1>
+            <p>Welcome to your own dedicated space on the internet! I built this interactive experience just for you, Babu, to showcase how beautiful you are and share a few highlights of why you're irreplaceable.</p>
+            <img src="cover.jpg" alt="Dipti Cover" class="image-frame">
+            <br>
+            <button class="btn-next" onclick="navigateTo(2)">Step Inside! ➡️</button>
+        </div>
+
+        <div id="page2" class="page">
+            <h1>A Vibe Checklist ✨</h1>
+            <p>Whether you're dressing up sleek or keeping it perfectly relaxed, you bring unmatched radiance everywhere you step.</p>
+            <img src="mall.jpg" alt="Dipti Shopping" class="image-frame">
+            <br>
+            <button class="btn-next" onclick="navigateTo(3)">Next Memory ➡️</button>
+        </div>
+
+        <div id="page3" class="page">
+            <h1>A Special Letter For You 💌</h1>
+            <div class="love-letter">
+                <p><strong>Happy Birthday, Babu ❤️</strong></p><br>
+                <p>Dear Deepti,</p><br>
+                <p>Today is a very special day because it's the birthday of someone who means a lot to me. Thank you for all the happiness, care, and beautiful memories you bring into my life.</p><br>
+                <p>I hope this year brings you success, good health, and everything you wish for. Keep smiling because your smile makes every day brighter.</p><br>
+                <p>Enjoy your special day, Babu. I'm lucky to have you in my life.</p><br>
+                <p>Happy Birthday once again!</p>
+                <div class="letter-signature">
+                    With love,<br>
+                    Your bachaaaa 🤔❤️
+                </div>
+            </div>
+            <button class="btn-next" onclick="navigateTo(4)">Keep Exploring ➡️</button>
+        </div>
+
+        <div id="page4" class="page">
+            <h1>Cutest Since Day One 🥺</h1>
+            <p>Let's take a quick look back! That gorgeous, bright smile of yours has clearly been enchanting the world since the very beginning.</p>
+            <img src="childhood.jpg" alt="Dipti Baby Picture" class="image-frame" style="max-height: 400px; object-fit: contain;">
+            <br>
+            <button class="btn-next" onclick="navigateTo(5)">Fast Forward ➡️</button>
+        </div>
+
+        <div id="page5" class="page">
+            <h1>Pure Elegance 🌸</h1>
+            <p>"Unplanned aesthetics" is completely right. You don't even have to try; your relaxed, natural self is completely captivating.</p>
+            <img src="unplanned.jpg" alt="Aesthetic Collage" class="image-frame">
+            <br>
+            <button class="btn-next" onclick="navigateTo(6)">Click for a Surprise ➡️</button>
+        </div>
+
+        <div id="page6" class="page">
+            <h1>Why You are Everything to Me 💕</h1>
+            <p>If I compiled a full inventory, it would take a million pages. But here's a quick look at the top tier highlights:</p>
+            <ul class="styled-list">
+                <li>❤️ <strong>Your Smile:</strong> It genuinely has the capacity to reset my bad days instantly.</li>
+                <li>❤️ <strong>Your Heart:</strong> The protective, deep warmth and kindness you hold inside.</li>
+                <li>❤️ <strong>Your Humour:</strong> The perfect blend of adorable quirks and matching energy.</li>
+                <li>❤️ <strong>Your Presence:</strong> Simply existing makes my whole world feel safe and bright.</li>
+            </ul>
+            <button class="btn-next" onclick="navigateTo(7)">Continue the Journey ➡️</button>
+        </div>
+
+        <div id="page7" class="page">
+            <h1>The Ultimate Hype Counter ⚡</h1>
+            <p>Whenever you need a reminder of who you are, hit the magic generator below to pull up a guaranteed truth bomb about you, Babu.</p>
+            <div class="compliment-box" id="complimentText">Hit the button to read your truth! 👇</div>
+            <button class="btn-next" onclick="generateCompliment()" style="background: #2ecc71; box-shadow: 0 4px 12px rgba(46,204,113,0.4);">Generate Hype Element 🌸</button>
+            <br><br>
+            <button class="btn-next" onclick="navigateTo(8)">Onto Page 8 ➡️</button>
+        </div>
+
+        <div id="page8" class="page">
+            <h1>The Definitive Love Quiz 🧠</h1>
+            <p>Let's test the database: What is my absolute favorite, non-negotiable thing to do whenever we hang out?</p>
+            <div class="quiz-option" onclick="alert('Spot on! Seeing you laugh and feel safe is my ultimate peace.')">A) Making Dipti laugh and keeping her smiling</div>
+            <div class="quiz-option" onclick="alert('Wrong channel! Try another item.')">B) Checking social media notifications</div>
+            <div class="quiz-option" onclick="alert('Nice try, but option A beats everything else combined!')">C) Getting extra sleep</div>
+            <br>
+            <button class="btn-next" onclick="navigateTo(9)">Next Page ➡️</button>
+        </div>
+
+        <div id="page9" class="page">
+            <h1>Playful Energetic Snaps 🐰</h1>
+            <p>From sweet filter styles to effortless confidence, you shine effortlessly through every single camera lens.</p>
+            <img src="selfie.jpg" alt="Dipti Selfie" class="image-frame">
+            <br>
+            <button class="btn-next" onclick="navigateTo(10)">View Collection ➡️</button>
+        </div>
+
+        <div id="page10" class="page">
+            <h1>Gallery of Absolute Perfection 🖼️</h1>
+            <p>A classic visual reminder that your style configuration is constantly a flawless 10 out of 10.</p>
+            <img src="collage.jpg" alt="Dipti Style Collage" class="image-frame">
+            <br>
+            <button class="btn-next" onclick="navigateTo(11)">Our Future ➡️</button>
+        </div>
+
+        <div id="page11" class="page">
+            <h1>Our Future Bucket List ✈️🗺️</h1>
+            <p>We've already gathered some incredible pages in our journal, but I can't wait to check these milestones off next with you:</p>
+            <p style="font-weight: 600; line-height: 2;">
+                🚗 Plan a long, scenic road trip out of town.<br>
+                🍿 Cozy up for an all-night movie marathon with snack trays.<br>
+                🍕 Master cooking a new culinary dish together at home.
+            </p>
+            <div style="margin-top: 25px; border: 3px dashed var(--primary-pink); padding: 20px; border-radius: 16px; background: #fff5f7; font-weight: bold; font-size: 1.2rem;">
+                🎟️ OFFICIAL DIGITAL TICKET:<br>Valid for One Grand Dinner Date + Unlimited Premium Hugs
+            </div>
+            <br>
+            <button class="btn-next" onclick="navigateTo(12)">The Final Destination ➡️</button>
+        </div>
+
+        <div id="page12" class="page">
+            <h1>Forever Lucky to Have You 💫</h1>
+            <p>I hope checking out these pages brought a huge smile to your beautiful face, Dipti. You deserve all the peace, joy, and success the coming year can hold. I love you, Babu!</p>
+            <img src="drawing.jpg" alt="Artistic Silhouette Drawing" class="image-frame" style="max-height: 380px; object-fit: contain;">
+            <div style="font-size: 3.5rem; margin-top: 15px; animation: bounce 2s infinite;">🎂🎈🎁💝</div>
+        </div>
+
+    </div>
+
+    <script>
+        // Definition layout for 12 custom page tracking tabs
+        const pageNames = ["Welcome", "Vibe", "Letter 💌", "Baby Dipti", "Aesthetic", "Reasons", "Hype ⚡", "Quiz", "Playful", "Gallery", "Roadmap", "Wish 🎉"];
+
+        // Generate Navigation Links dynamically
+        const navbar = document.getElementById('navbar');
+        pageNames.forEach((name, index) => {
+            const btn = document.createElement('button');
+            btn.innerText = name;
+            btn.id = `nav-btn-${index + 1}`;
+            if(index === 0) btn.classList.add('active');
+            btn.onclick = () => navigateTo(index + 1);
+            navbar.appendChild(btn);
+        });
+
+        // Main Single-Page App Page Controller Matrix
+        function navigateTo(pageNumber) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            document.getElementById(`nav-btn-${pageNumber}`).classList.add('active');
+            
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Dedicated array content elements for the page 7 module generator
+        const compliments = [
+            "Dipti, your laugh is genuinely the best background sound track in the world!",
+            "You have an incredible style presence, Babu. Flawless 10/10 configurations always.",
+            "Your kindness and empathy make you a rare jewel in this universe.",
+            "You make the concept of love completely effortless just by being you.",
+            "You have the absolute prettiest eyes and most luminous smile ever recorded!"
+        ];
+
+        function generateCompliment() {
+            const randomMsg = compliments[Math.floor(Math.random() * compliments.length)];
+            document.getElementById('complimentText').innerText = randomMsg;
+        }
+
+        // Falling heart ambient system generator
+        function createHeart() {
+            const container = document.getElementById('heartsContainer');
+            if(!container) return;
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'absolute';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-20px';
+            heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
+            heart.style.opacity = Math.random() * 0.5 + 0.3;
+            heart.style.pointerEvents = 'none';
+            
+            const duration = Math.random() * 3 + 4;
+            heart.style.transition = `transform ${duration}s linear, opacity ${duration}s ease-out`;
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.style.transform = `translateY(105vh) rotate(${Math.random() * 360}deg)`;
+            }, 50);
+
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createHeart, 450);
+    </script>
+</body>
+</html>
