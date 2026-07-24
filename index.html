@@ -601,156 +601,89 @@ Your Bachaaa ❤️
     </div>
 
     <script>
-        // Definition layout for 12 custom page tracking tabs
         const pageNames = ["Welcome","Vibe","Letter 💌","Baby Dipti","Aesthetic","Reasons ❤️","Memories 📖","Message 💕","Gallery","Gallery 2","Future","Final ❤️"];
 
-        // Generate Navigation Links dynamically
-        const navbar = document.getElementById('navbar');
-        pageNames.forEach((name, index) => {
-            const btn = document.createElement('button');
-            btn.innerText = name;
-            btn.id = `nav-btn-${index + 1}`;
-            if(index === 0) btn.classList.add('active');
-            btn.onclick = () => navigateTo(index + 1);
-            navbar.appendChild(btn);
-        });
+const navbar = document.getElementById("navbar");
 
-        // Main Single-Page App Page Controller Matrix
-        function navigateTo(pageNumber) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(`page${pageNumber}`).classList.add('active');
-            document.getElementById(`nav-btn-${pageNumber}`).classList.add('active');
-            
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
+pageNames.forEach((name,index)=>{
+    const btn=document.createElement("button");
+    btn.innerText=name;
+    btn.onclick=()=>navigateTo(index+1);
+    btn.id="nav-btn-"+(index+1);
+    if(index===0) btn.classList.add("active");
+    navbar.appendChild(btn);
+});
 
-        // Dedicated array content elements for the page 7 module generator
-        const compliments = [
-            "Dipti, your laugh is genuinely the best background sound track in the world!",
-            "You have an incredible style presence, Babu. Flawless 10/10 configurations always.",
-            "Your kindness and empathy make you a rare jewel in this universe.",
-            "You make the concept of love completely effortless just by being you.",
-            "You have the absolute prettiest eyes and most luminous smile ever recorded!"
-        ];
+function navigateTo(page){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    document.querySelectorAll("#navbar button").forEach(b=>b.classList.remove("active"));
 
-        function generateCompliment() {
-            const randomMsg = compliments[Math.floor(Math.random() * compliments.length)];
-            document.getElementById('complimentText').innerText = randomMsg;
-        }
+    document.getElementById("page"+page).classList.add("active");
+    document.getElementById("nav-btn-"+page).classList.add("active");
 
-        // Falling heart ambient system generator
-        function createHeart() {
-            const container = document.getElementById('heartsContainer');
-            if(!container) return;
-            const heart = document.createElement('div');
-            heart.innerHTML = '❤️';
-            heart.style.position = 'absolute';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = '-20px';
-            heart.style.fontSize = (Math.random() * 15 + 12) + 'px';
-            heart.style.opacity = Math.random() * 0.5 + 0.3;
-            heart.style.pointerEvents = 'none';
-            
-            const duration = Math.random() * 3 + 4;
-            heart.style.transition = `transform ${duration}s linear, opacity ${duration}s ease-out`;
-            container.appendChild(heart);
+    window.scrollTo(0,0);
 
-            setTimeout(() => {
-                heart.style.transform = `translateY(105vh) rotate(${Math.random() * 360}deg)`;
-            }, 50);
-
-            setTimeout(() => {
-                heart.remove();
-            }, duration * 1000);
-        }
-        setInterval(createHeart, 300);
-
-        
-
-    
-        const finalMessage =
-"If I had to choose again... I would still choose you. Every single time. Happy 17th Birthday My Bachuuu ❤️";
-
-let i = 0;
-
-function typeEnding() {
-
-const box = document.getElementById("typingText");
-
-if(!box) return;
-
-box.innerHTML = "";
-
-i = 0;
-
-const timer = setInterval(()=>{
-
-box.innerHTML += finalMessage.charAt(i);
-
-i++;
-
-if(i>=finalMessage.length){
-
-clearInterval(timer);
-
+    if(page===12){
+        typeEnding();
+    }
 }
 
-},40);
-
+function openLetter(){
+    document.getElementById("letterBox").style.display="block";
 }
 
-const oldNavigate = navigateTo;
+function createHeart(){
+    const container=document.getElementById("heartsContainer");
 
-navigateTo = function(page){
+    const heart=document.createElement("div");
+    heart.innerHTML="❤️";
+    heart.style.position="absolute";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.top="-20px";
+    heart.style.fontSize=(12+Math.random()*15)+"px";
 
-oldNavigate(page);
+    container.appendChild(heart);
 
-if(page==12){
+    setTimeout(()=>{
+        heart.style.transition="5s linear";
+        heart.style.transform="translateY(110vh)";
+    },10);
 
-typeEnding();
-
+    setTimeout(()=>heart.remove(),5000);
 }
 
+setInterval(createHeart,300);
+
+const finalMessage="If I had to choose again... I would still choose you. Every single time. Happy 17th Birthday My Bachuuu ❤️";
+
+function typeEnding(){
+    let i=0;
+    const box=document.getElementById("typingText");
+    box.innerHTML="";
+    const timer=setInterval(()=>{
+        box.innerHTML+=finalMessage.charAt(i++);
+        if(i>=finalMessage.length) clearInterval(timer);
+    },40);
 }
 
 function celebrate(){
+    for(let i=0;i<250;i++){
+        const h=document.createElement("div");
+        h.innerHTML=["❤️","💖","✨","🎉","🌸"][Math.floor(Math.random()*5)];
+        h.style.position="fixed";
+        h.style.left=Math.random()*100+"vw";
+        h.style.top="-30px";
+        h.style.fontSize=(18+Math.random()*22)+"px";
+        document.body.appendChild(h);
 
-for(let i=0;i<250;i++){
+        setTimeout(()=>{
+            h.style.transition="4s linear";
+            h.style.top="110vh";
+        },20);
 
-let h=document.createElement("div");
-
-h.innerHTML=["❤️","💖","✨","🎉","🌸"][Math.floor(Math.random()*5)];
-
-h.style.position="fixed";
-
-h.style.left=Math.random()*100+"vw";
-
-h.style.top="-30px";
-
-h.style.fontSize=(18+Math.random()*22)+"px";
-
-h.style.transition="4s linear";
-
-document.body.appendChild(h);
-
-setTimeout(()=>{
-
-h.style.top="110vh";
-
-h.style.transform="rotate(720deg)";
-
-},20);
-
-setTimeout(()=>h.remove(),4200);
-
-}
-
+        setTimeout(()=>h.remove(),4200);
     }
-        function openLetter() {
-    document.getElementById("letterBox").style.display = "block";
-        }
+}
     </script>
 </body>
 </html>
