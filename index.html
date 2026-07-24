@@ -36,6 +36,40 @@
     overflow-x: hidden;
     position: relative;
         }
+        @keyframes bgMove{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size:45px 45px;
+    opacity:.18;
+    animation:stars 80s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes stars{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-600px);
+    }
+}
 
 
         /* Falling Hearts Background Animation */
