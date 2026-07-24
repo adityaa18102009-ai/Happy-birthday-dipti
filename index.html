@@ -691,6 +691,84 @@ document.getElementById("mainTitle").innerHTML=
 }
 
 },1000);
+        const finalMessage =
+"If I had to choose again... I would still choose you. Every single time. Happy 17th Birthday My Bachuuu ❤️";
+
+let i = 0;
+
+function typeEnding() {
+
+const box = document.getElementById("typingText");
+
+if(!box) return;
+
+box.innerHTML = "";
+
+i = 0;
+
+const timer = setInterval(()=>{
+
+box.innerHTML += finalMessage.charAt(i);
+
+i++;
+
+if(i>=finalMessage.length){
+
+clearInterval(timer);
+
+}
+
+},40);
+
+}
+
+const oldNavigate = navigateTo;
+
+navigateTo = function(page){
+
+oldNavigate(page);
+
+if(page==12){
+
+typeEnding();
+
+}
+
+}
+
+function celebrate(){
+
+for(let i=0;i<250;i++){
+
+let h=document.createElement("div");
+
+h.innerHTML=["❤️","💖","✨","🎉","🌸"][Math.floor(Math.random()*5)];
+
+h.style.position="fixed";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.top="-30px";
+
+h.style.fontSize=(18+Math.random()*22)+"px";
+
+h.style.transition="4s linear";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.style.top="110vh";
+
+h.style.transform="rotate(720deg)";
+
+},20);
+
+setTimeout(()=>h.remove(),4200);
+
+}
+
+    }
     </script>
 </body>
 </html>
