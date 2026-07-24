@@ -295,7 +295,21 @@ box-shadow:0 0 35px hotpink;
     <div class="container">
         
         <div id="page1" class="page active">
-            <h1>🎉 Happy Birthday, Dipti! 🎉</h1>
+            <h1 id="mainTitle">Happy 17th Birthday My Bachuuu ❤️</h1>
+
+<div id="countdown" style="
+margin:20px auto;
+padding:18px;
+max-width:420px;
+border-radius:18px;
+background:rgba(255,255,255,.08);
+font-size:22px;
+font-weight:bold;
+color:#ffd6ec;
+box-shadow:0 0 20px rgba(255,20,147,.35);
+">
+Loading Countdown...
+</div>
             <p>Welcome to your own dedicated space on the internet! I built this interactive experience just for you, Babu, to showcase how beautiful you are and share a few highlights of why you're irreplaceable.</p>
             <img src="IMG-20260308-WA0002.jpg" alt="Dipti Cover" class="image-frame">
             <br>
@@ -480,7 +494,38 @@ box-shadow:0 0 35px hotpink;
             }, duration * 1000);
         }
 
-        setInterval(createHeart, 450);
+        const birthday = new Date("July 28, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+
+const distance = birthday - now;
+
+const d = Math.floor(distance/(1000*60*60*24));
+
+const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const m = Math.floor((distance%(1000*60*60))/(1000*60));
+
+const s = Math.floor((distance%(1000*60))/1000);
+
+if(distance>0){
+
+document.getElementById("countdown").innerHTML=
+"⏳ "+d+" Days "+h+" Hours "+m+" Minutes "+s+" Seconds ❤️";
+
+}else{
+
+document.getElementById("countdown").innerHTML=
+"🎂 Happyyyy 17th Birthdayyy My Bachuuu ❤️";
+
+document.getElementById("mainTitle").innerHTML=
+"🎉 Happy Birthday Dipti 🎉";
+
+}
+
+},1000);
     </script>
 </body>
 </html>
