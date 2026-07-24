@@ -728,7 +728,10 @@ if (new Date().getTime() < unlockTime) {
     const mins = Math.floor((d % (1000*60*60))/(1000*60));
     const secs = Math.floor((d % (1000*60))/1000);
 
-    document.getElementById("lockCountdown").innerHTML =
+    const timer = document.getElementById("lockCountdown");
+
+if(timer){
+    timer.innerHTML =
     `${days} Days ${hours} Hours ${mins} Minutes ${secs} Seconds ❤️`;
 
     if(d <= 0){
