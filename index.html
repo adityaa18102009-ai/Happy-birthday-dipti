@@ -24,6 +24,9 @@
             padding: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
+        #lockScreen{
+    display:none;
+        }
 
         body {
     background: linear-gradient(180deg,#04010d,#12001c,#25002f,#06010d);
@@ -303,19 +306,7 @@ box-shadow:0 0 35px hotpink;
     </style>
 </head>
 <body>
-    <div id="lockScreen">
-    <h1>🎁 A Special Surprise For My Bachuuu ❤️</h1>
-
-    <p>
-        This website will unlock on your birthday.
-        <br><br>
-        Please come back at exactly 12:00 AM ❤️
-    </p>
-
-    <div id="lockCountdown">
-        Loading...
-    </div>
-    </div>
+    
 
     <div class="hearts-bg" id="heartsContainer"></div>
 
@@ -740,7 +731,7 @@ if(timer){
 
 },1000);
 
-    throw new Error("Website Locked");
+    return;
 }
 
 setInterval(function(){
