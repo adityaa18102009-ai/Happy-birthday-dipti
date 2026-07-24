@@ -724,10 +724,11 @@ if (new Date().getTime() < unlockTime) {
 if(timer){
     timer.innerHTML =
     `${days} Days ${hours} Hours ${mins} Minutes ${secs} Seconds ❤️`;
+}
 
-    if(d <= 0){
-        location.reload();
-    }
+if(d <= 0){
+    location.reload();
+}
 
 },1000);
 
