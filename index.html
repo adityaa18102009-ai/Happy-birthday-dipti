@@ -303,6 +303,19 @@ box-shadow:0 0 35px hotpink;
     </style>
 </head>
 <body>
+    <div id="lockScreen">
+    <h1>🎁 A Special Surprise For My Bachuuu ❤️</h1>
+
+    <p>
+        This website will unlock on your birthday.
+        <br><br>
+        Please come back at exactly 12:00 AM ❤️
+    </p>
+
+    <div id="lockCountdown">
+        Loading...
+    </div>
+    </div>
 
     <div class="hearts-bg" id="heartsContainer"></div>
 
@@ -676,6 +689,55 @@ Your Bachaaa ❤️
         }
 
         const birthday = new Date("July 28, 2026 00:00:00").getTime();
+        const unlockTime = birthday;
+
+if (new Date().getTime() < unlockTime) {
+    document.body.innerHTML = `
+    <div style="
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        background:linear-gradient(180deg,#04010d,#12001c,#25002f,#06010d);
+        color:white;
+        text-align:center;
+        padding:30px;
+    ">
+        <h1 style="font-size:48px;color:#ff9ad5;">🎁 Surprise Locked ❤️</h1>
+        <p style="font-size:24px;">
+            This surprise will unlock on
+            <br><br>
+            <b>28 July 2026, 12:00 AM</b>
+        </p>
+
+        <div id="lockCountdown"
+        style="font-size:28px;margin-top:25px;color:#ffd6ec;">
+        Loading...
+        </div>
+    </div>
+    `;
+
+    if (new Date().getTime() >= birthday) {
+
+setInterval(function(){
+        const now = new Date().getTime();
+        const d = unlockTime - now;
+
+        const days = Math.floor(d / (1000*60*60*24));
+        const hours = Math.floor((d % (1000*60*60*24)) / (1000*60*60));
+        const mins = Math.floor((d % (1000*60*60)) / (1000*60));
+        const secs = Math.floor((d % (1000*60)) / 1000);
+
+        document.getElementById("lockCountdown").innerHTML =
+            `${days} Days ${hours} Hours ${mins} Minutes ${secs} Seconds`;
+
+        if (d <= 0) location.reload();
+
+    },1000);
+
+    throw new Error("Website Locked");
+}
 
 setInterval(function(){
 
