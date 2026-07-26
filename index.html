@@ -703,9 +703,17 @@ function celebrate(){
 
         setTimeout(()=>h.remove(),4200);
     }
-}
-        
 
+    setTimeout(()=>{
+        const ending = document.getElementById("endingScreen");
+        ending.style.display = "flex";
+
+        setTimeout(()=>{
+            ending.style.opacity = "1";
+        },100);
+
+    },4500);
+}
 
     const unlockDate = new Date("July 28, 2026 00:00:00").getTime();
 
@@ -730,5 +738,44 @@ const timer = setInterval(function () {
 
 }, 1000);
     </script>
+    <div id="endingScreen" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+color:white;
+z-index:999999;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:30px;
+opacity:0;
+transition:opacity 2.5s ease;
+">
+
+<h1 style="font-family:'Great Vibes',cursive;font-size:55px;color:#ff8fcf;">
+❤️ One Last Thing... ❤️
+</h1>
+
+<p style="font-size:24px;line-height:1.8;max-width:700px;">
+
+Distance brought us together.<br><br>
+
+Today, I finally get to celebrate your birthday beside you. ❤️<br><br>
+
+Now close your phone...<br>
+because your real birthday surprise is waiting for you. 🎂🌹
+
+</p>
+
+<h2 style="margin-top:40px;color:#ff9ad5;">
+See you soon, Bubuu. ❤️
+</h2>
+
+    </div>
 </body>
 </html>
