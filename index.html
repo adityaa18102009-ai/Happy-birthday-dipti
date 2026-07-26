@@ -617,6 +617,40 @@ Continue ❤️
             <br>
             <button class="btn-next" onclick="navigateTo(11)">Our Future ➡️</button>
         </div>
+        <div id="page11" class="page">
+
+    <h1>❤️ Our Journey Together ❤️</h1>
+
+    <p>
+    Some stories start with a big moment...<br><br>
+
+    Ours started with a simple glance. ✨<br><br>
+
+    When I joined Class 11 as a new student, that was the first time our eyes met.<br><br>
+
+    Maybe it was just a normal day for everyone else, but for me, it became the beginning of something special. ❤️<br><br>
+
+    From that first sight to becoming us... every moment has been beautiful.
+    </p>
+
+    <h2 style="color:#ff9ad5;">
+    ❤️ We have been together for
+    </h2>
+
+    <h1 id="daysCounter" style="color:#ff8fcf;">
+    Loading...
+    </h1>
+
+    <p>
+    Started our journey on:<br>
+    <b>14 February 2026 ❤️</b>
+    </p>
+
+    <button class="btn-next" onclick="navigateTo(12)">
+    Continue ❤️
+    </button>
+
+        </div>
 
         <div id="page11" class="page">
             <h1>Our Future Bucket List ✈️🗺️</h1>
@@ -750,6 +784,19 @@ function createHeart(){
 
 setInterval(createHeart,300);
 
+function updateDaysCounter(){
+
+    const startDate = new Date("February 14, 2026 00:00:00");
+    const today = new Date();
+
+    const difference = today - startDate;
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    document.getElementById("daysCounter").innerHTML = days + " Days ❤️";
+}
+
+updateDaysCounter();
 const finalMessage="If I had to choose again... I would still choose you. Every single time. Happy 17th Birthday My Bachuuu ❤️";
 
 function typeEnding(){
