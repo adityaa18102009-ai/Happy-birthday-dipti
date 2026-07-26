@@ -703,6 +703,29 @@ function celebrate(){
 
         setTimeout(()=>h.remove(),4200);
     }
+    function typeEndingText(){
+
+    const text = `Distance brought us together.
+
+Today, I finally get to celebrate your birthday beside you. ❤️
+
+Now close your phone...
+because your real birthday surprise is waiting for you. 🎂🌹`;
+
+    const box = document.getElementById("endingText");
+
+    let i = 0;
+
+    function typing(){
+        if(i < text.length){
+            box.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, 50);
+        }
+    }
+
+    typing();
+    }
 
     setTimeout(()=>{
         const ending = document.getElementById("endingScreen");
@@ -710,12 +733,13 @@ function celebrate(){
 
         setTimeout(()=>{
             ending.style.opacity = "1";
+            typeEndingText();
         },100);
 
     },4500);
 }
 
-    const unlockDate = new Date("July 28, 2026 00:00:00").getTime();
+    const unlockDate = new Date("January 1, 2020 00:00:00").getTime();
 
 const timer = setInterval(function () {
 
