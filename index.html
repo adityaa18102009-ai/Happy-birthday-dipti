@@ -139,10 +139,19 @@ body::before{
     border-radius: 24px;
     box-shadow: 0 0 35px rgba(255,20,147,0.25);
     text-align: center;
-    animation: slideUp 0.8s ease-out;
     border: 1px solid rgba(255,255,255,0.15);
     color: white;
-        }
+
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
         .page.active {
             display: block;
@@ -635,18 +644,33 @@ pageNames.forEach((name,index)=>{
 });
 
 function navigateTo(page){
-    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-    document.querySelectorAll("#navbar button").forEach(b=>b.classList.remove("active"));
 
-    document.getElementById("page"+page).classList.add("active");
-    document.getElementById("nav-btn-"+page).classList.add("active");
+    const currentPage = document.querySelector(".page.active");
+    const nextPage = document.getElementById("page"+page);
 
-    window.scrollTo(0,0);
+    if(currentPage){
+        currentPage.style.opacity = "0";
+        currentPage.style.transform = "translateY(-40px) scale(0.95)";
+    }
+
+    setTimeout(()=>{
+
+        document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+        document.querySelectorAll("#navbar button").forEach(b=>b.classList.remove("active"));
+
+        nextPage.classList.add("active");
+        document.getElementById("nav-btn-"+page).classList.add("active");
+
+        window.scrollTo(0,0);
+
+    },600);
 
     if(page===12){
-        typeEnding();
+        setTimeout(()=>{
+            typeEnding();
+        },700);
     }
-}
+        }
 
 function openLetter(){
     document.getElementById("letterBox").style.display="block";
