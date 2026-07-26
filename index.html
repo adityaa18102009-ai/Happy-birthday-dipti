@@ -741,7 +741,12 @@ function navigateTo(page){
 
     setTimeout(()=>{
 
-        document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+        document.querySelectorAll(".page").forEach(p=>{
+            p.classList.remove("active");
+            p.style.opacity = "";
+            p.style.transform = "";
+        });
+
         document.querySelectorAll("#navbar button").forEach(b=>b.classList.remove("active"));
 
         nextPage.classList.add("active");
