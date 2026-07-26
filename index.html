@@ -718,10 +718,15 @@ because your real birthday surprise is waiting for you. 🎂🌹`;
 
     function typing(){
         if(i < text.length){
-            box.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, 50);
-        }
+    box.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 50);
+}
+else{
+    setTimeout(()=>{
+        document.getElementById("finalLine").style.opacity="1";
+    },1000);
+}
     }
 
     typing();
@@ -787,7 +792,12 @@ transition:opacity 2.5s ease;
 
 <p id="endingText" style="font-size:24px;line-height:1.8;max-width:700px;"></p>
 
-<h2 style="margin-top:40px;color:#ff9ad5;">
+<h2 id="finalLine" style="
+margin-top:40px;
+color:#ff9ad5;
+opacity:0;
+transition:opacity 2s ease;
+">
 See you soon, Bubuu. ❤️
 </h2>
 
