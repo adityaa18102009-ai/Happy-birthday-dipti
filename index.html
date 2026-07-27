@@ -653,27 +653,224 @@ Continue ❤️
         </div>
 
         <div id="page12" class="page">
-            <h1>Our Future Bucket List ✈️🗺️</h1>
-            <p>We've already gathered some incredible pages in our journal, but I can't wait to check these milestones off next with you:</p>
-            <p style="font-weight: 600; line-height: 2;">
-                🚗 Plan a long, scenic road trip out of town.<br>
-                🍿 Cozy up for an all-night movie marathon with snack trays.<br>
-                🍕 Master cooking a new culinary dish together at home.
-            </p>
-            <div style="margin-top:25px; border:2px solid #ff7ebd; padding:25px; border-radius:20px; background:linear-gradient(135deg,#2b083d,#4b0d68); color:white; box-shadow:0 0 25px rgba(255,20,147,.35); font-weight:bold; font-size:1.2rem;">
-                🎟️ OFFICIAL DIGITAL TICKET:<br>Valid for One Grand Dinner Date + Unlimited Premium Hugs
-            </div>
-            <br>
-            <button class="btn-next" onclick="navigateTo(13)">The Final Destination ➡️</button>
+
+<h1>🌙 If I Never Met You...</h1>
+
+<div class="love-letter">
+
+<p>
+Sometimes I wonder...
+</p>
+
+<br>
+
+<p>
+What if I had never taken admission in JKG?
+</p>
+
+<br>
+
+<p>
+What if I had never looked towards you that day?
+</p>
+
+<br>
+
+<p>
+What if our eyes had never met?
+</p>
+
+<br>
+
+<p>
+Maybe life would still go on...
+</p>
+
+<br>
+
+<p>
+Maybe I would still laugh...
+</p>
+
+<br>
+
+<p>
+Maybe I would still smile...
+</p>
+
+<br>
+
+<p>
+But deep inside...
+something would always be missing.
+</p>
+
+<br>
+
+<p>
+Because somewhere in that crowded school...
+</p>
+
+<br>
+
+<p>
+I found the girl who slowly became my happiness...
+my comfort...
+my safe place...
+my favourite notification...
+and my favourite person.
+</p>
+
+<br>
+
+<h2 style="text-align:center;color:#ff9ad5;">
+And then...
+</h2>
+
+<br><br>
+
+<h1 style="
+text-align:center;
+font-size:65px;
+font-family:'Great Vibes',cursive;
+color:#ff8fcf;
+text-shadow:0 0 25px hotpink;
+">
+Dipti ❤️
+</h1>
+
+<p style="text-align:center;font-size:24px;">
+My favourite person.
+</p>
+
+<br>
+
+<p style="text-align:center;font-size:22px;">
+Thank you for coming into my life, Bubuu. 🫂
+</p>
+
+</div>
+
+<br>
+
+<button class="btn-next" onclick="navigateTo(13)">
+One Last Thing ❤️
+</button>
+
+        </div>
+        <div id="page13" class="page">
+
+<h1>❤️ Thank You ❤️</h1>
+
+<div class="love-letter">
+
+<p>Thank you for choosing me.</p>
+
+<br>
+
+<p>Thank you for making me smile on my worst days.</p>
+
+<br>
+
+<p>Thank you for listening to my endless talks.</p>
+
+<br>
+
+<p>Thank you for caring about me more than anyone ever has.</p>
+
+<br>
+
+<p>Thank you for making me feel loved.</p>
+
+<br>
+
+<p>Thank you for making me feel like I matter.</p>
+
+<br>
+
+<p>Thank you for becoming my home.</p>
+
+<br>
+
+<h2 style="text-align:center;color:#ff9ad5;">
+And most importantly...
+</h2>
+
+<h1 style="
+font-family:'Great Vibes',cursive;
+font-size:60px;
+text-align:center;
+color:#ff8fcf;
+">
+Thank you for being you. ❤️
+</h1>
+
+</div>
+
+<br>
+
+<button class="btn-next" onclick="navigateTo(14)">
+One Last Page ❤️
+</button>
+
         </div>
 
-        <div id="page13" class="page">
+        <div id="page14" class="page">
 
 <h1 id="finalTitle">Happy 17th Birthday My Bachuuu ❤️🎂</h1>
 
 <div class="love-letter">
 
 <p id="typingText"></p>
+
+<div id="afterTyping" style="
+opacity:0;
+transition:opacity 2s ease;
+">
+
+<p style="font-size:24px;">
+🧿 I hope this birthday becomes the happiest chapter of your life.
+</p>
+
+<br>
+
+<p style="font-size:24px;">
+No matter what happens...
+</p>
+
+<br>
+
+<p style="font-size:24px;">
+I'll always be cheering for you.
+</p>
+
+<br>
+
+<p style="font-size:24px;">
+I'll always be proud of you.
+</p>
+
+<br>
+
+<p style="font-size:24px;">
+And I'll always choose you.
+</p>
+
+<br>
+
+<h1 style="
+font-family:'Great Vibes',cursive;
+color:#ff8fcf;
+font-size:55px;
+">
+Happy Birthday, Dipti. ❤️
+</h1>
+
+<p style="font-size:28px;">
+Forever your Bachaaa.
+</p>
+
+</div>
 
 <br>
 
@@ -716,8 +913,22 @@ Your Bachaaa ❤️
     </div>
 
     <script>
-        const pageNames = ["Welcome","Vibe","Letter 💌","Baby Dipti","Aesthetic","Reasons ❤️","Memories 📖","Message 💕","Gallery","Gallery 2","Our Journey ❤️","Future","Final ❤️"];
-
+        const pageNames = [
+"Welcome",
+"Vibe",
+"Letter 💌",
+"Baby Dipti",
+"Aesthetic",
+"Reasons ❤️",
+"Memories 📖",
+"Message 💕",
+"Gallery",
+"Gallery 2",
+"Journey ❤️",
+"If I Never Met You 🌙",
+"Thank You ❤️",
+"Final ❤️"
+];
 const navbar = document.getElementById("navbar");
 
 pageNames.forEach((name,index)=>{
@@ -805,13 +1016,31 @@ updateDaysCounter();
 const finalMessage="If I had to choose again... I would still choose you. Every single time. Happy 17th Birthday My Bachuuu ❤️";
 
 function typeEnding(){
-    let i=0;
-    const box=document.getElementById("typingText");
-    box.innerHTML="";
-    const timer=setInterval(()=>{
-        box.innerHTML+=finalMessage.charAt(i++);
-        if(i>=finalMessage.length) clearInterval(timer);
+
+    let i = 0;
+
+    const box = document.getElementById("typingText");
+
+    box.innerHTML = "";
+
+    document.getElementById("afterTyping").style.opacity = "0";
+
+    const timer = setInterval(()=>{
+
+        box.innerHTML += finalMessage.charAt(i++);
+
+        if(i >= finalMessage.length){
+
+            clearInterval(timer);
+
+            setTimeout(()=>{
+                document.getElementById("afterTyping").style.opacity = "1";
+            },1000);
+
+        }
+
     },40);
+
 }
 
 function celebrate(){
@@ -872,7 +1101,7 @@ else{
     },4500);
 }
 
-    const unlockDate = new Date("July 28, 2026 00:00:00").getTime();
+    const unlockDate = new Date("July 27, 2026 19:35:00").getTime();
 
 const timer = setInterval(function () {
 
